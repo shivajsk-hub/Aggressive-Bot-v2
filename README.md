@@ -1,59 +1,85 @@
-# Aggressive-Bot-v2
-Arduino-powered 6-servo combat robot simulation in Tinkercad with LCD and sensor integration
-# Aggressive-Bot-v2 🤖
+# Aggressive-Bot-V2 🤖
+*Arduino + Tinkercad combat bot simulation* with 6 servos, LCD HUD, ultrasonic sensing, tilt/light inputs, and power-friendly motion control.
 
-*Arduino-powered 6-servo combat robot simulation* built in *Tinkercad*, featuring:
-- LCD Display (16x2)
-- Ultrasonic Sensor for distance detection
-- TMP36 Temperature Sensor
-- Tilt & Light sensors
-- 6 continuous servo motion with power management
-- Optional buzzer feedback
+[![Made with Arduino](https://img.shields.io/badge/made%20with-Arduino-00979D.svg)](#)
+[![Simulation Tinkercad](https://img.shields.io/badge/simulation-Tinkercad-orange.svg)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
 
-## 🛠 Features
-- *Aggressive Mode:* Simulates attack patterns every 5 seconds.
-- *Servo Power Management:* Smooth movement to prevent power spikes.
-- *LCD HUD:* Displays robot mode, temperature, and servo sweep percentage.
-- *Sensors:* Ultrasonic for range detection, TMP36 for temperature, tilt & light sensors for environmental feedback.
-- *DEMO Mode:* Runs a showcase cycle for presentations and video recording.
+## ✨ Highlights
+- *LCD HUD* (16×2) shows mode, temp, and sweep %  
+- *6× servos* with smooth, staggered updates (reduced current spikes)  
+- *Ultrasonic + tilt + light + TMP36* integrated  
+- *Demo Mode* cycles behaviors for clean recording  
+- *Single-file code* (Aggressive-Bot-v2.ino) easy to run
 
 ---
 
-## 🔧 Hardware (Tinkercad Simulation)
-- Arduino Uno
-- 6 × Servo Motors
-- Ultrasonic Sensor (HC-SR04)
-- TMP36 Temperature Sensor
-- Tilt Sensor
-- Light Sensor
-- Buzzer
-- 16x2 LCD (4-bit parallel)
-- External 5–6V regulator for servos (common GND with Arduino)
-- Jumper wires, resistors, breadboard
+## 🧱 Hardware (as built in Tinkercad)
+- Arduino Uno  
+- 6× SG90/MG90S servos (external 5–6V regulator, common GND)  
+- Ultrasonic sensor (front)  
+- TMP36 (A0), Tilt (D7), Light (D13), Buzzer (A5)  
+- LCD 16×2 (parallel, RS=12, E=11, D4=5, D5=4, D6=3, D7=2, RW=GND, VO=pot)  
+- Breadboard, jumpers, 470–1000 µF cap on servo rail
+
+> 📸 See docs/wiring-diagram.png for the exact connections.
 
 ---
 
-## 🚀 How to Run
-1. Open the .ino file in *Arduino IDE*.
-2. Select *Arduino Uno* board.
-3. Upload to your Arduino or run in *Tinkercad*.
-4. In DEMO mode, the bot cycles through states:
-   - PATROL → TARGET → ATTACK → RETREAT → FLANK LEFT → FLANK RIGHT
+## 🧭 Pin Map (current build)
+| Part | Pin |
+|---|---|
+| Servos | D6, D10, D8, A1, A2, A3 |
+| Ultrasonic (front, single-wire) | D9 |
+| Tilt (SW-200D, INPUT_PULLUP) | D7 |
+| Light sensor (digital) | D13 |
+| TMP36 | A0 |
+| Buzzer | A5 |
+| LCD RS,E,D4–D7 | D12, D11, D5, D4, D3, D2 |
 
 ---
 
-## 📸 Preview
-(Insert your Tinkercad design link or screenshot here)
+## 🚀 Run It
+1. Open **Aggressive-Bot-v2.ino** in Arduino IDE.
+2. Board: *Arduino Uno*.
+3. Libraries: built-ins (Servo, LiquidCrystal).
+4. Upload.  
+5. (Optional) In code, set DEMO_MODE 1 for auto cycling, 0 for sensor-driven.
 
 ---
 
-## 📜 License
-This project is licensed under the *MIT License* – see the [LICENSE](LICENSE) file for details.
+## 🎥 Demo
+- YouTube: (add your link)  
+- Backup (Drive): (add your link)
 
 ---
 
-## 📬 Contact
-Created by *Jarfulavath Shivakumar*  
-GitHub: [shivajsk-hub](https://github.com/shivajsk-hub)
+## 🖼 Screenshots
+- Circuit: docs/wiring-diagram.png  
+- LCD output: docs/lcd.jpg (optional)
+
+---
+
+## 🛣 Roadmap
+- [ ] Add DC motors back (move LCD to I²C backpack / PCA9685 for servos)  
+- [ ] IMU (MPU6050) for balance & gait control  
+- [ ] Bluetooth (HC-05) manual override  
+- [ ] Webots/Unity 3D model for full virtual demo
+
+---
+
+## 📝 Notes
+- Use a *separate 5–6 V regulator* for servos; *common GND* with Arduino.  
+- Add 470–1000 µF across servo rail to reduce brownouts.  
+- Tinkercad I²C parts are flaky; LCD is parallel here on purpose.
+
+---
+
+## 🧑‍💻 Author
+*Jarfulavath Shivakumar* — Tinkercad build + Arduino integration  
+GitHub: https://github.com/shivajsk-hub
+
+## 📄 License
+MIT — see [LICENSE](LICENSE).
